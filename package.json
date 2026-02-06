@@ -1,0 +1,24 @@
+{
+  "name": "jake-compoenents",
+  "version": "1.0.0",
+  "description": "A library of reusable React components to leverage across projects.",
+  "scripts": {
+    "build": "babel src --out-dir dist"
+  },
+  "author": "Jake Poe",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.28.6",
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.0",
+    "@babel/preset-react": "^7.28.5"
+  },
+  "engines": {
+    "node": ">=24.0.0",
+    "npm": ">=11.0.0"
+  }
+}
