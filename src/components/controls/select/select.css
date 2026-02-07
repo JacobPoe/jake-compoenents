@@ -1,0 +1,15 @@
+select {
+    height: var(--grid-controls__height);
+    min-width: var(--grid-controls__width);
+    padding: var(--space-1);
+    border-radius: var(--radius-sm);
+
+    background: linear-gradient(180deg, var(--muted), color-mix(in oklab, var(--muted) 85%, black));
+    background-color: var(--accent);
+    border-color: color-mix(in oklab, var(--ring) 60%, black);
+    color: var(--accent-contrast);
+}
+
+select:hover {
+    cursor: pointer;
+}

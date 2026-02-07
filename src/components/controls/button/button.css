@@ -1,0 +1,67 @@
+/* Component-specific tweaks that build on .btn base styles in style.css */
+.btn[type="button"],
+.btn[type="submit"] {
+    letter-spacing: .2px;
+    text-transform: uppercase;
+}
+
+.btn[type="close"] {
+    gap: 0;
+    padding: 0.25rem;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    color: var(--muted);
+
+    font-weight: 600;
+    border-width: 1px;
+    border-color: var(--muted);
+    border-radius: var(--radius-sm);
+    right: 2px;
+    top: 2px;
+    transform: translate(-100%, 100%);
+}
+.btn[type="close"]::after {
+    position: relative;
+    top: -2px;
+    content: "x"
+}
+
+.btn[type="nav"] {
+    height: var(--grid-controls__height);
+    width: var(--grid-controls__width);
+    margin: auto var(--space-2);
+}
+.btn[type="nav"]:not([disabled]) {
+    color: var(--fg);
+    background-color: var(--accent);
+}
+.btn[type="nav"]:first-of-type {
+    margin-left: 0;
+}
+.btn[type="nav"]:last-of-type {
+    margin-right: 0;
+}
+
+.btn[type="tab"] {
+    background-color: transparent;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    border: 1px solid var(--border);
+
+    margin-bottom: -8px;
+}
+.btn[type="tab"].active {
+    background-color: var(--accent);
+    color: var(--accent-contrast);
+}
+.btn[type="tab"]:not(:first-of-type) {
+    margin-left: var(--space-2);
+}
+.btn[type="tab"]:hover {
+    border: 1px solid var(--accent);
+    background-color: transparent;
+}
+
+.btn[disabled]:hover {
+    cursor: not-allowed;
+}
