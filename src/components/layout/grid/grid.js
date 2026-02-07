@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import { paginate } from "../../../services/pagination.service";
 
+import { setAssets } from "../../../state/actions/set-assets";
 import { setBatchSize } from "../../../state/actions/set-batch-size";
 import { setOffset } from "../../../state/actions/set-offset";
 
@@ -16,6 +17,17 @@ const Grid = (props) => {
     const gridSizeOptions = [25, 50, 100, 200]
     const [range, setRange] = useState({ start: 0, end: 0 });
     const [tiles, setTiles] = useState([]);
+
+    const fetchContent = async () => {
+        await props.fetchContentCallback(props.activeTab.category)
+            .then((res) => {
+                props.dispatch(setAssets({
+                        files: res.files,
+                        ...props.activeTab
+                    })
+                )
+            })
+    }
 
     const updateOffset = (offset) => {
         props.dispatch(setOffset(offset))
@@ -46,7 +58,7 @@ const Grid = (props) => {
         const dir = props.directories[category];
 
         if (!dir || dir.length === 0) {
-            props.fetchAssetsCallback;
+            fetchContent();
         }
     }, [props.activeTab]);
 
