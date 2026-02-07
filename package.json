@@ -8,7 +8,7 @@
   },
   "author": "Jake Poe",
   "license": "ISC",
-  "dependencies": {
+  "peerDependencies": {
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-redux": "^9.2.0"
