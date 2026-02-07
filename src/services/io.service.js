@@ -63,8 +63,7 @@ const stopRecordingAudio = (mediaRecorderRef, audioChunksRef) => {
 };
 
 export const IOService = {
-    postAudioPrompt,
-    postTextPrompt,
+    handleAudioPlayback,
     startRecordingAudio,
     stopRecordingAudio
 };
