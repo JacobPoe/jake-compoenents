@@ -18,6 +18,17 @@ const Grid = (props) => {
     const [range, setRange] = useState({ start: 0, end: 0 });
     const [tiles, setTiles] = useState([]);
 
+    const buildTileMeta = (compressedUrl, fullsizeUrl, subdirectory, files) => {
+        return files.map((filename, index) => {
+            return {
+                id: `${index}_${filename}`,
+                name: filename,
+                url: `${compressedUrl}/${subdirectory}/${filename}`,
+                source: `${fullsizeUrl}/${filename}`
+            }
+        })
+    }
+
     const fetchContent = async () => {
         await props.fetchContentCallback(props.activeTab.category)
             .then((res) => {
@@ -74,7 +85,7 @@ const Grid = (props) => {
 
         const dir = props.directories[category].slice(start, end);
         if (dir && dir.length > 0) {
-            const tilesMeta = props.buildTileMetaCallback(category, dir);
+            const tilesMeta = buildTileMeta(props.compressedUrl, props.fullsizeUrl, category, dir);
             setTiles(tilesMeta);
         } else {
             setTiles([]);
@@ -121,6 +132,7 @@ const Grid = (props) => {
                         <Tile
                             id={`tile_${key}`}
                             name={image.name}
+                            source={image.source}
                             url={image.url}
                             key={key}
                             tabIndex={key + 1}
