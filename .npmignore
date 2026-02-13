@@ -6,4 +6,5 @@ src/
 .gitignore/
 .package-lock.json/
 
+*.tgz
 !dist
