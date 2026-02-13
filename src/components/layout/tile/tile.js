@@ -11,7 +11,8 @@ const Tile = (props) => {
             setActiveImage({
                 id: props.id,
                 name: props.name,
-                url: props.url
+                url: props.url,
+                source: props.source
             })
         );
     }
