@@ -1,5 +1,6 @@
-import {SanitizerService} from "../../../../services/sanitizer.service";
 import React from "react";
+
+import { SanitizerService } from "../../../../services/sanitizer.service";
 
 import "./text.css";
 
