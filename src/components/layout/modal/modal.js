@@ -16,6 +16,14 @@ const Modal = (props) => {
         setSource(`${props.activeImage.source}/${props.activeImage.name}`);
     }, [])
 
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === "Escape") closeModal();
+        };
+        document.addEventListener("keydown", handleKeyDown);
+        return () => document.removeEventListener("keydown", handleKeyDown);
+    }, []);
+
     return (
         <>
             <div className="modal-backdrop" onClick={() => closeModal()}></div>

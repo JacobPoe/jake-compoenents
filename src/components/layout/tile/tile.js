@@ -18,7 +18,19 @@ const Tile = (props) => {
     }
 
     return (
-        <img id={props.id} tabIndex={props.tabIndex} className={`tile`} src={props.url} onClick={() => maximizeImage()} />
+        <img
+            id={props.id}
+            tabIndex={props.tabIndex}
+            className={`tile`}
+            src={props.url}
+            onClick={() => maximizeImage()}
+            onKeyDown={(e) => {
+                if (e.key === " " || e.key === "Enter") {
+                    e.preventDefault();
+                    maximizeImage();
+                }
+            }}
+        />
     );
 };
 
